@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { basename, resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
@@ -21,13 +21,36 @@ function libraryInputs() {
   return inputs;
 }
 
-/* Demo site: every HTML page at the root and in demo/. */
+/*
+ * Demo site: index.html at the site root, every other page under demo/.
+ * The output mirrors the source tree, so dist/site/ is a deployable root.
+ */
 function demoInputs() {
   const inputs = { index: r('index.html') };
   for (const file of readdirSync(r('demo'))) {
     if (file.endsWith('.html')) inputs[`demo/${basename(file, '.html')}`] = r('demo', file);
   }
   return inputs;
+}
+
+/*
+ * Lightbox links (<a href="assets/img/...">) are not rewritten by Vite, so the
+ * full-size demo images are copied to the same relative path in the output.
+ */
+function copyDemoImages() {
+  return {
+    name: 'oo-copy-demo-images',
+    apply: 'build',
+    generateBundle() {
+      for (const file of readdirSync(r('demo/assets/img'))) {
+        this.emitFile({
+          type: 'asset',
+          fileName: `demo/assets/img/${file}`,
+          source: readFileSync(r('demo/assets/img', file)),
+        });
+      }
+    },
+  };
 }
 
 export default defineConfig(({ mode }) => {
@@ -54,11 +77,17 @@ export default defineConfig(({ mode }) => {
     };
   }
 
+  /*
+   * Demo site. Relative URLs by default so the output works from any folder.
+   * The GitHub Pages workflow sets OO_BASE=/oo-patterns/ so asset URLs are
+   * absolute under the project path.
+   */
   return {
-    base: './',
+    base: process.env.OO_BASE || './',
     publicDir: false,
+    plugins: [copyDemoImages()],
     build: {
-      outDir: 'dist/demo',
+      outDir: 'dist/site',
       emptyOutDir: true,
       assetsInlineLimit: 0,
       target: 'es2022',

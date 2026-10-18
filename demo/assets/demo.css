@@ -82,6 +82,9 @@
   font-weight: var(--oo-font-weight-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+
+  /* Keep anchor targets (#v-filter etc.) clear of the sticky demo bar. */
+  scroll-margin-block-start: 6rem;
 }
 
 .demo-variant__label code {

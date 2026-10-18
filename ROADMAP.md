@@ -1,6 +1,6 @@
 # Roadmap
 
-Estimates are working hours for one person and include tests, docs and demo pages. They are planning numbers, not commitments. Total remaining estimate: **about 100 hours** (range 80 to 125).
+Estimates are working hours for one person and include tests, docs and demo pages. They are planning numbers, not commitments. Total remaining estimate: **about 98 hours** (range 80 to 125).
 
 Status of the first milestone reflects what is in the repository today.
 
@@ -13,6 +13,7 @@ Status of the first milestone reflects what is in the repository today.
 - [x] JavaScript: nav, carousel, filter, lightbox, theme toggle, autoInit
 - [x] Tooling: Vite multi-page demo and library build, Stylelint, html-validate, Vitest, axe-core check, CI
 - [x] Initial documentation and decision records
+- [x] GitHub Pages workflow that builds and deploys the demo site from CI
 
 ## Milestone 1: More variants (about 28 hours)
 
@@ -59,12 +60,11 @@ All Drupal material lives under `examples/drupal/` as documentation and sample f
 - [ ] Keyboard journey tests: open and close the menu, page the carousel, use the lightbox, filter the grid (4 h)
 - [ ] Print snapshot of the resume page (2 h)
 
-## Milestone 6: Documentation site (about 16 hours)
+## Milestone 6: Documentation site (about 14 hours)
 
 - [ ] Turn the demo into a documentation site: per-pattern pages with live example, markup snippet with copy button, and class reference (8 h)
 - [ ] Token reference page generated from `tokens.css` (3 h)
 - [ ] Accessibility notes per pattern (keyboard map, screen reader behaviour) (3 h)
-- [ ] Deploy to GitHub Pages from CI (2 h)
 
 ## Ideas, not scheduled
 

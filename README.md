@@ -1,8 +1,26 @@
 # oo-patterns
 
+[![CI](https://github.com/plutado/oo-patterns/actions/workflows/ci.yml/badge.svg)](https://github.com/plutado/oo-patterns/actions/workflows/ci.yml)
+[![Pages](https://github.com/plutado/oo-patterns/actions/workflows/pages.yml/badge.svg)](https://github.com/plutado/oo-patterns/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A framework-agnostic library of HTML, CSS and small JavaScript patterns for personal and portfolio sites.
 
+**Live demo: [https://plutado.github.io/oo-patterns/](https://plutado.github.io/oo-patterns/)**
+
 **Status: early development.** The pattern set, class names and token names may still change before 1.0. See [ROADMAP.md](ROADMAP.md).
+
+| Pattern index | Filterable portfolio grid |
+| --- | --- |
+| [![Demo index listing every pattern group](docs/images/demo-index.png)](https://plutado.github.io/oo-patterns/) | [![Filterable portfolio grid with category buttons and overlay tiles](docs/images/portfolio-grid.png)](https://plutado.github.io/oo-patterns/demo/portfolio.html) |
+| **Resume / CV** | **Case study, dark theme** |
+| [![Print-friendly resume page](docs/images/resume.png)](https://plutado.github.io/oo-patterns/demo/resume.html) | [![Case study page in the dark theme](docs/images/case-study-dark.png)](https://plutado.github.io/oo-patterns/demo/case-study.html) |
+
+<p align="center">
+  <a href="https://plutado.github.io/oo-patterns/demo/portfolio.html"><img src="docs/images/portfolio-mobile.png" width="260" alt="Portfolio page at 390 pixels wide, with the navigation wrapping and cards in a single column"></a>
+  <br>
+  <em>Portfolio page at phone width (390 px).</em>
+</p>
 
 ## What it is
 
@@ -54,10 +72,13 @@ Other scripts:
 ```sh
 npm run lint         # stylelint + html-validate
 npm test             # vitest (components and token contrast)
-npm run build        # library to dist/, demo site to dist/demo/
+npm run build        # library to dist/, demo site to dist/site/
 npm run check:a11y   # axe-core over the built demo pages (run after build)
-npm run preview      # serve dist/demo/
+npm run preview      # serve dist/site/
+npm run build:pages  # demo site built for https://plutado.github.io/oo-patterns/
 ```
+
+The demo build uses relative URLs, so `dist/site/` works from any folder. Setting `OO_BASE` (for example `OO_BASE=/oo-patterns/`) makes asset URLs absolute under that path; the Pages workflow does this on every push to `main` and publishes `dist/site/`.
 
 ## Use it in a site
 
@@ -126,6 +147,22 @@ To avoid a flash of the wrong theme when a visitor has chosen one, put this inli
 ### Markup
 
 Copy markup from the demo pages (`index.html` and `demo/*.html`); they are plain HTML with no templating. Each pattern's required structure is documented in [docs/patterns.md](docs/patterns.md).
+
+## What's next
+
+The roadmap totals about 98 hours of remaining work. The headline items, with rough estimates:
+
+| Item | Estimate |
+| --- | --- |
+| More variants: overlay and off-canvas headers, video hero, pricing cards, list-style portfolio index, before / after comparison, testimonials | 28 h |
+| Drupal theme integration examples: `libraries.yml`, Twig templates for page regions, portfolio nodes and articles, a Views-based filterable grid | 22 h |
+| Real-browser testing with Playwright: axe-core in Chromium, Firefox and WebKit, screenshot tests in both themes, keyboard journey tests | 16 h |
+| Documentation site: per-pattern pages with live example, copyable markup and class reference; generated token reference | 14 h |
+| Theming guide with two or three alternate token sets and a demo theme switcher | 10 h |
+| npm package: minified CSS, source maps, type declarations, release workflow with provenance, first tagged release | 8 h |
+| **Total** | **98 h** |
+
+Estimates are working hours for one person and include tests, docs and demo pages. The full breakdown is in [ROADMAP.md](ROADMAP.md).
 
 ## Documentation
 

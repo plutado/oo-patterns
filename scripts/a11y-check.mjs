@@ -19,7 +19,7 @@ import { JSDOM, VirtualConsole } from 'jsdom';
 const require = createRequire(import.meta.url);
 const axeSource = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 
-const dir = resolve(process.argv[2] ?? 'dist/demo');
+const dir = resolve(process.argv[2] ?? 'dist/site');
 
 function htmlFiles(path) {
   return readdirSync(path).flatMap((name) => {

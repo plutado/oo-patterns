@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- The demo site now builds to `dist/site/` (previously `dist/demo/`), with `index.html` at the root and every other page under `demo/`. Full-size lightbox images are copied into the build so their links resolve.
+
 ### Added
 
 - Design tokens for colour (light and dark), typography, spacing, layout, shape, depth and motion, with WCAG AA contrast tests.
@@ -16,4 +20,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Vite multi-page demo site with generated SVG placeholder artwork.
 - Build output: full CSS bundle, core CSS, per-pattern CSS and per-component ES modules in `dist/`.
 - Tooling: Stylelint, html-validate, Vitest with jsdom, axe-core check over built demo pages, GitHub Actions CI.
+- GitHub Pages workflow that builds the demo site with `npm run build:pages` and deploys it to https://plutado.github.io/oo-patterns/.
+- README screenshots in `docs/images/`, status badges and a "What's next" summary of the roadmap.
 - Documentation: README, roadmap, design tokens, pattern inventory, Drupal integration guide and architecture decision records.

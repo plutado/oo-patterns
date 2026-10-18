@@ -29,13 +29,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode lib && vite build",
-    "preview": "vite preview --outDir dist/demo",
+    "build:pages": "vite build --mode lib && OO_BASE=/oo-patterns/ vite build",
+    "preview": "vite preview --outDir dist/site",
     "lint": "npm run lint:css && npm run lint:html",
     "lint:css": "stylelint \"src/**/*.css\" \"demo/**/*.css\"",
     "lint:html": "html-validate index.html \"demo/**/*.html\"",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check:a11y": "node scripts/a11y-check.mjs dist/demo",
+    "check:a11y": "node scripts/a11y-check.mjs dist/site",
     "placeholders": "node scripts/generate-placeholders.mjs"
   },
   "devDependencies": {
