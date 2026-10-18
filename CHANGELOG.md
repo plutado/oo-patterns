@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-18
+
 ### Changed
 
 - The demo site now builds to `dist/site/` (previously `dist/demo/`), with `index.html` at the root and every other page under `demo/`. Full-size lightbox images are copied into the build so their links resolve.
@@ -23,3 +25,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - GitHub Pages workflow that builds the demo site with `npm run build:pages` and deploys it to https://plutado.github.io/oo-patterns/.
 - README screenshots in `docs/images/`, status badges and a "What's next" summary of the roadmap.
 - Documentation: README, roadmap, design tokens, pattern inventory, Drupal integration guide and architecture decision records.
+
+[Unreleased]: https://github.com/plutado/oo-patterns/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/plutado/oo-patterns/releases/tag/v0.1.0
