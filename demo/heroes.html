@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heroes | oo-patterns</title>
+    <meta name="description" content="Hero patterns: statement and slider.">
+    <script>try{var t=localStorage.getItem('oo-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <link rel="stylesheet" href="../src/css/oo.css">
+    <link rel="stylesheet" href="assets/demo.css">
+    <script type="module" src="assets/demo.js"></script>
+  </head>
+  <body>
+    <a class="oo-skip-link" href="#main">Skip to content</a>
+    <nav class="demo-bar" aria-label="Pattern library">
+      <div class="demo-bar__inner oo-container">
+        <a class="demo-bar__home" href="../index.html">oo-patterns</a>
+        <ul class="demo-bar__links">
+          <li><a href="foundations.html">Foundations</a></li>
+          <li><a href="headers.html">Headers</a></li>
+          <li><a href="heroes.html" aria-current="page">Heroes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="case-study.html">Case study</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog-post.html">Post</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button type="button" class="oo-theme-toggle" data-oo-theme-toggle aria-pressed="false" aria-label="Dark theme"><svg class="oo-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="oo-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      </div>
+    </nav>
+    <main id="main">
+      <div class="demo-intro oo-container">
+        <p class="oo-eyebrow">Pattern group</p>
+        <h1>Heroes</h1>
+        <p>The first screen of a portfolio. On a real page the hero title is the page h1; in this demo it is an h2 so the page keeps one h1.</p>
+      </div>
+      <section class="demo-variant" aria-labelledby="v-statement">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-statement">Statement</h2>
+          <code>.oo-hero</code>
+        </div>
+        <div class="oo-hero">
+          <div class="oo-container oo-hero__grid">
+            <div class="oo-hero__content">
+              <p class="oo-hero__availability">Available for projects from February</p>
+              <h2 class="oo-hero__title">Identity, film and the <em>quiet</em> details in between.</h2>
+              <p class="oo-hero__intro">I&rsquo;m Rowan, an independent designer and filmmaker. I help small studios, publishers and festivals look as considered as the work they make.</p>
+              <div class="oo-hero__actions">
+                <a class="oo-button oo-button--lg" href="portfolio.html">See selected work</a>
+                <a class="oo-button oo-button--secondary oo-button--lg" href="about.html">About me</a>
+              </div>
+            </div>
+            <div class="oo-hero__art">
+              <img src="assets/img/hero.svg" alt="Abstract composition of stacked arches in warm colours" width="800" height="1000">
+              <p class="oo-hero__badge"><strong>12 yrs</strong> of independent practice</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="demo-variant" aria-labelledby="v-slider">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-slider">Slider</h2>
+          <code>.oo-hero-slider.oo-carousel  [data-oo-carousel] [data-oo-autoplay]</code>
+        </div>
+        <section class="oo-hero-slider oo-carousel" data-oo-carousel data-oo-autoplay="7000" aria-label="Featured projects">
+          <div class="oo-carousel__viewport">
+            <div class="oo-carousel__track">
+              <div class="oo-carousel__slide">
+                <img class="oo-hero-slider__media" src="assets/img/slide-01.svg" alt="" width="1600" height="900">
+                <div class="oo-hero-slider__caption">
+                  <div class="oo-hero-slider__text oo-container">
+                    <p class="oo-eyebrow">Festival identity</p>
+                    <p class="oo-hero-slider__title">Tidewater Film Week</p>
+                    <p>A flexible identity built from a single wave line, animated across forty screens.</p>
+                    <a class="oo-button" href="case-study.html">View project</a>
+                  </div>
+                </div>
+              </div>
+              <div class="oo-carousel__slide">
+                <img class="oo-hero-slider__media" src="assets/img/slide-02.svg" alt="" width="1600" height="900">
+                <div class="oo-hero-slider__caption">
+                  <div class="oo-hero-slider__text oo-container">
+                    <p class="oo-eyebrow">Documentary</p>
+                    <p class="oo-hero-slider__title">The Orbit Keepers</p>
+                    <p>A twelve-minute portrait of the volunteers who run a hill-top observatory.</p>
+                    <a class="oo-button" href="case-study.html">View project</a>
+                  </div>
+                </div>
+              </div>
+              <div class="oo-carousel__slide">
+                <img class="oo-hero-slider__media" src="assets/img/slide-03.svg" alt="" width="1600" height="900">
+                <div class="oo-hero-slider__caption">
+                  <div class="oo-hero-slider__text oo-container">
+                    <p class="oo-eyebrow">Editorial</p>
+                    <p class="oo-hero-slider__title">Blockprint Quarterly</p>
+                    <p>Art direction and layout system for an independent print magazine.</p>
+                    <a class="oo-button" href="case-study.html">View project</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="oo-carousel__bar">
+            <div class="oo-carousel__bar-inner oo-container">
+              <button type="button" class="oo-carousel__button" data-oo-carousel-prev aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <button type="button" class="oo-carousel__button" data-oo-carousel-next aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              <ol class="oo-carousel__dots" data-oo-carousel-dots></ol>
+              <button type="button" class="oo-carousel__button oo-carousel__play" data-oo-carousel-play aria-pressed="false" aria-label="Play slideshow"><svg class="oo-carousel__icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><svg class="oo-carousel__icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg></button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

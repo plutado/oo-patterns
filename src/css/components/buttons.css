@@ -1,0 +1,123 @@
+/* Buttons. Works on <button> and <a>. */
+
+@layer oo.components {
+  .oo-button {
+    --_bg: var(--oo-color-accent);
+    --_fg: var(--oo-color-on-accent);
+    --_border: var(--oo-color-accent);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--oo-space-2);
+    min-block-size: 2.75rem;
+    padding: var(--oo-space-2) var(--oo-space-5);
+    border: var(--oo-border-width) solid var(--_border);
+    border-radius: var(--oo-radius-pill);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--oo-font-sans);
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-medium);
+    line-height: 1.2;
+    text-decoration: none;
+    transition:
+      background-color var(--oo-duration-fast) var(--oo-ease),
+      border-color var(--oo-duration-fast) var(--oo-ease),
+      color var(--oo-duration-fast) var(--oo-ease),
+      transform var(--oo-duration-fast) var(--oo-ease);
+  }
+
+  .oo-button:hover {
+    --_bg: var(--oo-color-accent-hover);
+    --_border: var(--oo-color-accent-hover);
+
+    color: var(--_fg);
+  }
+
+  .oo-button:active {
+    transform: translateY(1px);
+  }
+
+  .oo-button:disabled,
+  .oo-button[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .oo-button--secondary {
+    --_bg: transparent;
+    --_fg: var(--oo-color-text);
+    --_border: var(--oo-color-border-strong);
+  }
+
+  .oo-button--secondary:hover {
+    --_bg: var(--oo-color-surface-2);
+    --_border: var(--oo-color-text);
+  }
+
+  .oo-button--ghost {
+    --_bg: transparent;
+    --_fg: var(--oo-color-accent);
+    --_border: transparent;
+  }
+
+  .oo-button--ghost:hover {
+    --_bg: var(--oo-color-accent-soft);
+    --_fg: var(--oo-color-on-accent-soft);
+    --_border: transparent;
+  }
+
+  .oo-button--sm {
+    min-block-size: 2.25rem;
+    padding: var(--oo-space-1) var(--oo-space-4);
+    font-size: var(--oo-text-xs);
+  }
+
+  .oo-button--lg {
+    min-block-size: 3.25rem;
+    padding: var(--oo-space-3) var(--oo-space-6);
+    font-size: var(--oo-text-md);
+  }
+
+  .oo-button--icon {
+    inline-size: 2.75rem;
+    padding: 0;
+  }
+
+  .oo-button svg {
+    inline-size: 1.1em;
+    block-size: 1.1em;
+    flex-shrink: 0;
+  }
+
+  /* Link styled as an arrow call to action. */
+  .oo-link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--oo-space-2);
+    font-weight: var(--oo-font-weight-medium);
+    text-decoration: none;
+  }
+
+  .oo-link-arrow::after {
+    content: "\2192";
+    transition: transform var(--oo-duration-fast) var(--oo-ease);
+  }
+
+  .oo-link-arrow:hover::after {
+    transform: translateX(0.25em);
+  }
+
+  /* Small label for categories, tags and status. */
+  .oo-tag {
+    display: inline-block;
+    padding: 0.15em 0.7em;
+    border-radius: var(--oo-radius-pill);
+    background-color: var(--oo-color-accent-soft);
+    color: var(--oo-color-on-accent-soft);
+    font-size: var(--oo-text-xs);
+    font-weight: var(--oo-font-weight-medium);
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,179 @@
+/*
+ * Resume / CV. Designed to print cleanly on A4 and US Letter.
+ */
+
+@layer oo.patterns {
+  .oo-resume {
+    container: oo-resume / inline-size;
+    max-inline-size: 56rem;
+    margin-inline: auto;
+    padding-block: var(--oo-section-space);
+  }
+
+  .oo-resume__header {
+    display: grid;
+    gap: var(--oo-space-3);
+    padding-block-end: var(--oo-space-6);
+    border-block-end: 2px solid var(--oo-color-text);
+  }
+
+  .oo-resume__name {
+    font-size: var(--oo-text-4xl);
+  }
+
+  .oo-resume__role {
+    color: var(--oo-color-accent);
+    font-size: var(--oo-text-lg);
+    font-weight: var(--oo-font-weight-medium);
+  }
+
+  .oo-resume__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--oo-space-1) var(--oo-space-5);
+    margin: 0;
+    padding: 0;
+    font-size: var(--oo-text-sm);
+    list-style: none;
+  }
+
+  .oo-resume__section {
+    display: grid;
+    gap: var(--oo-space-4);
+    padding-block: var(--oo-space-6);
+    border-block-end: var(--oo-border-width) solid var(--oo-color-border);
+  }
+
+  .oo-resume__heading {
+    color: var(--oo-color-text-muted);
+    font-family: var(--oo-font-sans);
+    font-size: var(--oo-text-xs);
+    font-weight: var(--oo-font-weight-bold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .oo-resume__entries {
+    display: grid;
+    gap: var(--oo-space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oo-resume__entry {
+    display: grid;
+    gap: var(--oo-space-1);
+  }
+
+  .oo-resume__entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--oo-space-1) var(--oo-space-4);
+  }
+
+  .oo-resume__entry-title {
+    font-family: var(--oo-font-sans);
+    font-size: var(--oo-text-md);
+    font-weight: var(--oo-font-weight-bold);
+  }
+
+  .oo-resume__org {
+    color: var(--oo-color-text-muted);
+  }
+
+  .oo-resume__dates {
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .oo-resume__entry ul {
+    margin: var(--oo-space-2) 0 0;
+    padding-inline-start: var(--oo-space-5);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-resume__skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--oo-space-4);
+  }
+
+  .oo-resume__skills dt {
+    font-weight: var(--oo-font-weight-bold);
+  }
+
+  .oo-resume__skills dd {
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-resume__actions {
+    display: flex;
+    gap: var(--oo-space-3);
+    margin-block-start: var(--oo-space-6);
+  }
+
+  @container oo-resume (width >= 44rem) {
+    .oo-resume__section {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: var(--oo-space-6);
+    }
+  }
+
+  @media print {
+    @page {
+      margin: 1.6cm 1.8cm;
+    }
+
+    :root {
+      --oo-color-bg: #fff;
+      --oo-color-text: #000;
+      --oo-color-text-muted: #333;
+      --oo-color-accent: #000;
+      --oo-color-border: #999;
+    }
+
+    body {
+      font-size: 10.5pt;
+    }
+
+    .oo-no-print,
+    .oo-header,
+    .oo-footer,
+    .oo-resume__actions {
+      display: none !important;
+    }
+
+    .oo-resume {
+      max-inline-size: none;
+      padding: 0;
+    }
+
+    .oo-resume__name {
+      font-size: 24pt;
+    }
+
+    .oo-resume__section {
+      grid-template-columns: 9rem minmax(0, 1fr);
+      padding-block: 0.4cm;
+      break-inside: avoid;
+    }
+
+    .oo-resume__entry {
+      break-inside: avoid;
+    }
+
+    .oo-resume a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .oo-resume__contact a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.85em;
+    }
+  }
+}

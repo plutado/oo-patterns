@@ -1,0 +1,252 @@
+/*
+ * Portfolio cards, grid and filter.
+ *
+ * Cards:
+ *   .oo-card    framed card, media on top and text below (side by side when
+ *               the card itself is wide, via a container query)
+ *   .oo-tile    media-first tile with the caption laid over the image
+ * Grid:
+ *   .oo-portfolio-grid          responsive auto-fill grid
+ *   .oo-portfolio-grid--masonry-ish  varies tile heights for visual rhythm
+ * Filter (filter.js):
+ *   .oo-filter, .oo-filter__controls, .oo-filter__button
+ */
+
+@layer oo.patterns {
+  /* Grid */
+  .oo-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: var(--oo-space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oo-portfolio-grid > * {
+    container: oo-card / inline-size;
+  }
+
+  .oo-portfolio-grid--wide > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Card variant 1: framed */
+  .oo-card {
+    position: relative;
+    display: grid;
+    block-size: 100%;
+    overflow: hidden;
+    border: var(--oo-border-width) solid var(--oo-color-border);
+    border-radius: var(--oo-radius-lg);
+    background-color: var(--oo-color-surface);
+    transition: box-shadow var(--oo-duration-base) var(--oo-ease), border-color var(--oo-duration-base) var(--oo-ease);
+  }
+
+  .oo-card:hover,
+  .oo-card:focus-within {
+    border-color: var(--oo-color-border-strong);
+    box-shadow: var(--oo-shadow-md);
+  }
+
+  .oo-card__media {
+    overflow: hidden;
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-card__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform var(--oo-duration-slow) var(--oo-ease);
+  }
+
+  .oo-card:hover .oo-card__media img {
+    transform: scale(1.03);
+  }
+
+  .oo-card__body {
+    display: grid;
+    gap: var(--oo-space-2);
+    align-content: start;
+    padding: var(--oo-space-5);
+  }
+
+  .oo-card__title {
+    font-size: var(--oo-text-xl);
+  }
+
+  .oo-card__title a {
+    color: var(--oo-color-text);
+    text-decoration: none;
+  }
+
+  /* Stretched link: the whole card is clickable, one tab stop. */
+  .oo-card__title a::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  .oo-card__title a:focus-visible {
+    outline: none;
+  }
+
+  .oo-card:has(.oo-card__title a:focus-visible) {
+    outline: var(--oo-focus-ring);
+    outline-offset: var(--oo-focus-offset);
+  }
+
+  .oo-card__summary {
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--oo-space-2);
+    align-items: center;
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-xs);
+  }
+
+  @container oo-card (width >= 40rem) {
+    .oo-card {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .oo-card__media img {
+      aspect-ratio: 16 / 10;
+    }
+
+    .oo-card__body {
+      align-content: center;
+      padding: var(--oo-space-7);
+    }
+
+    .oo-card__title {
+      font-size: var(--oo-text-3xl);
+    }
+
+    .oo-card__summary {
+      font-size: var(--oo-text-md);
+    }
+  }
+
+  /* Card variant 2: tile with overlaid caption */
+  .oo-tile {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+    border-radius: var(--oo-radius-md);
+    background-color: var(--oo-color-surface-2);
+    isolation: isolate;
+  }
+
+  .oo-tile > * {
+    grid-area: 1 / 1;
+  }
+
+  .oo-tile__media {
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform var(--oo-duration-slow) var(--oo-ease), filter var(--oo-duration-slow) var(--oo-ease);
+  }
+
+  .oo-tile__caption {
+    display: grid;
+    gap: var(--oo-space-1);
+    align-content: end;
+    padding: var(--oo-space-5);
+    background: linear-gradient(to top, var(--oo-color-overlay) 0%, var(--oo-color-overlay) 35%, transparent 75%);
+    color: var(--oo-color-on-overlay);
+  }
+
+  .oo-tile__category {
+    font-size: var(--oo-text-xs);
+    font-weight: var(--oo-font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .oo-tile__title {
+    font-size: var(--oo-text-lg);
+  }
+
+  .oo-tile__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .oo-tile__title a::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    content: "";
+  }
+
+  .oo-tile__title a:focus-visible {
+    outline: none;
+  }
+
+  .oo-tile:has(a:focus-visible) {
+    outline: var(--oo-focus-ring);
+    outline-offset: var(--oo-focus-offset);
+  }
+
+  .oo-tile:hover .oo-tile__media,
+  .oo-tile:focus-within .oo-tile__media {
+    transform: scale(1.04);
+  }
+
+  .oo-portfolio-grid--masonry-ish > :nth-child(3n + 2) .oo-tile__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Filter */
+  .oo-filter__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--oo-space-2);
+    margin-block-end: var(--oo-space-6);
+  }
+
+  /* Filter buttons do nothing without JavaScript, so hide them until ready. */
+  .oo-filter:not([data-oo-filter-ready]) .oo-filter__controls {
+    display: none;
+  }
+
+  .oo-filter__button {
+    min-block-size: 2.5rem;
+    padding: var(--oo-space-1) var(--oo-space-4);
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-pill);
+    background: transparent;
+    color: var(--oo-color-text);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-filter__button:hover {
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-filter__button[aria-pressed="true"] {
+    border-color: var(--oo-color-text);
+    background-color: var(--oo-color-text);
+    color: var(--oo-color-bg);
+  }
+
+  .oo-filter__count {
+    margin-block-end: var(--oo-space-4);
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-filter:not([data-oo-filter-ready]) .oo-filter__count {
+    display: none;
+  }
+}

@@ -1,0 +1,160 @@
+/*
+ * Styles for the demo site only (pattern index, variant labels, swatches).
+ * Not part of the library build.
+ */
+
+.demo-bar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 60;
+  border-block-end: 1px solid var(--oo-color-border);
+  background-color: var(--oo-color-surface);
+  font-size: var(--oo-text-sm);
+}
+
+.demo-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oo-space-2) var(--oo-space-4);
+  padding-block: var(--oo-space-2);
+}
+
+.demo-bar__home {
+  margin-inline-end: auto;
+  color: var(--oo-color-text);
+  font-family: var(--oo-font-mono);
+  font-weight: var(--oo-font-weight-bold);
+  text-decoration: none;
+}
+
+.demo-bar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oo-space-1) var(--oo-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demo-bar__links a {
+  color: var(--oo-color-text-muted);
+  text-decoration: none;
+}
+
+.demo-bar__links a:hover,
+.demo-bar__links a[aria-current="page"] {
+  color: var(--oo-color-accent);
+}
+
+.demo-intro {
+  display: grid;
+  gap: var(--oo-space-3);
+  padding-block: var(--oo-space-8) var(--oo-space-6);
+}
+
+.demo-intro h1 {
+  font-size: var(--oo-text-3xl);
+}
+
+.demo-intro p {
+  max-inline-size: var(--oo-prose-width);
+  color: var(--oo-color-text-muted);
+}
+
+.demo-variant {
+  padding-block-end: var(--oo-space-8);
+}
+
+.demo-variant__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--oo-space-2) var(--oo-space-4);
+  margin-block-end: var(--oo-space-4);
+  padding-block: var(--oo-space-3);
+  border-block: 1px dashed var(--oo-color-border-strong);
+}
+
+.demo-variant__title {
+  font-family: var(--oo-font-sans);
+  font-size: var(--oo-text-sm);
+  font-weight: var(--oo-font-weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.demo-variant__label code {
+  color: var(--oo-color-text-muted);
+  font-size: var(--oo-text-sm);
+}
+
+.demo-frame {
+  border: 1px solid var(--oo-color-border);
+}
+
+.demo-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: var(--oo-space-4);
+  margin: 0;
+  padding: 0 0 var(--oo-space-8);
+  list-style: none;
+}
+
+.demo-index a {
+  display: grid;
+  gap: var(--oo-space-1);
+  block-size: 100%;
+  padding: var(--oo-space-5);
+  border: 1px solid var(--oo-color-border);
+  border-radius: var(--oo-radius-md);
+  background-color: var(--oo-color-surface);
+  color: var(--oo-color-text);
+  text-decoration: none;
+}
+
+.demo-index a:hover {
+  border-color: var(--oo-color-accent);
+}
+
+.demo-index strong {
+  font-family: var(--oo-font-display);
+  font-size: var(--oo-text-lg);
+}
+
+.demo-index span {
+  color: var(--oo-color-text-muted);
+  font-size: var(--oo-text-sm);
+}
+
+.demo-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--oo-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demo-swatches li {
+  overflow: hidden;
+  border: 1px solid var(--oo-color-border);
+  border-radius: var(--oo-radius-md);
+  font-size: var(--oo-text-xs);
+}
+
+.demo-swatches span {
+  display: block;
+  block-size: 3.5rem;
+  border-block-end: 1px solid var(--oo-color-border);
+}
+
+.demo-swatches code {
+  display: block;
+  padding: var(--oo-space-2);
+}
+
+.demo-type-scale > * + * {
+  margin-block-start: var(--oo-space-3);
+}

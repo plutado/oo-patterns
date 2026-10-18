@@ -1,0 +1,111 @@
+/*
+ * Lightbox (lightbox.js). Built on the native <dialog> element, which
+ * provides the modal focus trap, Escape handling and the ::backdrop.
+ */
+
+@layer oo.components {
+  .oo-lightbox {
+    inline-size: min(100vw - 2rem, 72rem);
+    max-inline-size: none;
+    max-block-size: calc(100dvh - 2rem);
+    padding: 0;
+    border: 0;
+    border-radius: var(--oo-radius-lg);
+    background-color: var(--oo-color-surface);
+    color: var(--oo-color-text);
+    box-shadow: var(--oo-shadow-md);
+  }
+
+  .oo-lightbox::backdrop {
+    background-color: var(--oo-color-overlay);
+  }
+
+  .oo-lightbox__frame {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    max-block-size: calc(100dvh - 2rem);
+  }
+
+  .oo-lightbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--oo-space-3);
+    padding: var(--oo-space-2) var(--oo-space-2) var(--oo-space-2) var(--oo-space-5);
+    border-block-end: var(--oo-border-width) solid var(--oo-color-border);
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-lightbox__stage {
+    display: grid;
+    place-items: center;
+    min-block-size: 0;
+    padding: var(--oo-space-4);
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-lightbox__image {
+    max-inline-size: 100%;
+    max-block-size: calc(100dvh - 12rem);
+    object-fit: contain;
+  }
+
+  .oo-lightbox__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--oo-space-3);
+    padding: var(--oo-space-3) var(--oo-space-5);
+  }
+
+  .oo-lightbox__caption {
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-lightbox__nav {
+    display: flex;
+    gap: var(--oo-space-2);
+  }
+
+  .oo-lightbox__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-pill);
+    background: transparent;
+    color: var(--oo-color-text);
+    font-size: var(--oo-text-lg);
+    line-height: 1;
+  }
+
+  .oo-lightbox__button:hover {
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-lightbox__button[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .oo-lightbox[open] {
+      animation: oo-lightbox-in var(--oo-duration-base) var(--oo-ease);
+    }
+  }
+
+  @keyframes oo-lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+
+  /* Trigger links keep their thumbnail behaviour. */
+  [data-oo-lightbox] {
+    cursor: zoom-in;
+  }
+}

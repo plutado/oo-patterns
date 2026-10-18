@@ -1,0 +1,116 @@
+/*
+ * Carousel component (carousel.js).
+ *
+ * Without JavaScript the track is a horizontally scrollable, snap-aligned
+ * row, so every slide stays reachable. carousel.js adds
+ * [data-oo-carousel-ready] and switches to one-slide-at-a-time paging.
+ */
+
+@layer oo.components {
+  .oo-carousel {
+    position: relative;
+  }
+
+  .oo-carousel__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .oo-carousel__track {
+    display: flex;
+  }
+
+  .oo-carousel__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  [data-oo-carousel-ready] .oo-carousel__viewport {
+    overflow: hidden;
+  }
+
+  [data-oo-carousel-ready] .oo-carousel__track {
+    transform: translateX(calc(var(--oo-carousel-index, 0) * -100%));
+    transition: transform var(--oo-duration-slow) var(--oo-ease);
+  }
+
+  [dir="rtl"] [data-oo-carousel-ready] .oo-carousel__track,
+  [data-oo-carousel-ready][dir="rtl"] .oo-carousel__track {
+    transform: translateX(calc(var(--oo-carousel-index, 0) * 100%));
+  }
+
+  .oo-carousel__bar {
+    display: none;
+  }
+
+  [data-oo-carousel-ready] .oo-carousel__bar {
+    display: block;
+  }
+
+  .oo-carousel__bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--oo-space-3);
+  }
+
+  .oo-carousel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-pill);
+    background-color: var(--oo-color-surface);
+    color: var(--oo-color-text);
+  }
+
+  .oo-carousel__button:hover {
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-carousel__button svg {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+  }
+
+  .oo-carousel__dots {
+    display: flex;
+    gap: var(--oo-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oo-carousel__dot {
+    display: grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .oo-carousel__dot::before {
+    inline-size: 1.5rem;
+    block-size: 4px;
+    border-radius: 2px;
+    background-color: var(--oo-color-border-strong);
+    content: "";
+    transition: background-color var(--oo-duration-fast) var(--oo-ease);
+  }
+
+  .oo-carousel__dot[aria-current="true"]::before {
+    background-color: var(--oo-color-accent);
+  }
+
+  /* While playing, the button offers "pause"; while paused, "play". */
+  .oo-carousel__play[aria-pressed="true"] .oo-carousel__icon-play,
+  .oo-carousel__play:not([aria-pressed="true"]) .oo-carousel__icon-pause {
+    display: none;
+  }
+}

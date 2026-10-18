@@ -1,0 +1,287 @@
+/*
+ * Header and navigation.
+ *
+ * Variants:
+ *   .oo-header               brand left, navigation right (default)
+ *   .oo-header--centered     brand centred, navigation on its own row
+ * Modifiers:
+ *   .oo-header--sticky       sticks to the top of the viewport
+ *
+ * The header is a size container, so it collapses based on its own width
+ * rather than the viewport. Without JavaScript the navigation is always
+ * visible; nav.js adds [data-oo-nav-ready] to enable the toggle.
+ */
+
+@layer oo.patterns {
+  .oo-header {
+    container: oo-header / inline-size;
+    position: relative;
+    border-block-end: var(--oo-border-width) solid var(--oo-color-border);
+    background-color: var(--oo-color-bg);
+  }
+
+  .oo-header--sticky {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--oo-z-header);
+  }
+
+  .oo-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--oo-space-3) var(--oo-space-5);
+    padding-block: var(--oo-space-4);
+  }
+
+  .oo-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--oo-space-2);
+    margin-inline-end: auto;
+    color: var(--oo-color-text);
+    font-family: var(--oo-font-display);
+    font-size: var(--oo-text-lg);
+    font-weight: var(--oo-font-weight-bold);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .oo-header__brand:hover {
+    color: var(--oo-color-text);
+  }
+
+  .oo-header__mark {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: var(--oo-radius-sm);
+    background-color: var(--oo-color-accent);
+    color: var(--oo-color-on-accent);
+    font-family: var(--oo-font-sans);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-header__nav {
+    flex-basis: 100%;
+  }
+
+  .oo-header__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--oo-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oo-header__list a {
+    display: block;
+    padding: var(--oo-space-2) var(--oo-space-1);
+    color: var(--oo-color-text);
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-medium);
+    text-decoration: none;
+  }
+
+  .oo-header__list a:hover {
+    color: var(--oo-color-accent);
+  }
+
+  .oo-header__list a[aria-current="page"] {
+    color: var(--oo-color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.5em;
+  }
+
+  .oo-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--oo-space-2);
+  }
+
+  /* Menu toggle, only shown once nav.js is running. */
+  .oo-header__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-md);
+    background: transparent;
+  }
+
+  [data-oo-nav-ready] .oo-header__toggle {
+    display: inline-flex;
+  }
+
+  [data-oo-nav-ready] .oo-header__nav {
+    display: none;
+  }
+
+  [data-oo-nav-ready][data-oo-nav-open] .oo-header__nav {
+    display: block;
+  }
+
+  .oo-header__bars,
+  .oo-header__bars::before,
+  .oo-header__bars::after {
+    display: block;
+    inline-size: 1.125rem;
+    block-size: 2px;
+    border-radius: 2px;
+    background-color: currentcolor;
+    transition: transform var(--oo-duration-base) var(--oo-ease), opacity var(--oo-duration-fast) linear;
+  }
+
+  .oo-header__bars {
+    position: relative;
+  }
+
+  .oo-header__bars::before,
+  .oo-header__bars::after {
+    position: absolute;
+    inset-inline-start: 0;
+    content: "";
+  }
+
+  .oo-header__bars::before {
+    transform: translateY(-6px);
+  }
+
+  .oo-header__bars::after {
+    transform: translateY(6px);
+  }
+
+  [data-oo-nav-open] .oo-header__bars {
+    background-color: transparent;
+  }
+
+  [data-oo-nav-open] .oo-header__bars::before {
+    background-color: var(--oo-color-text);
+    transform: rotate(45deg);
+  }
+
+  [data-oo-nav-open] .oo-header__bars::after {
+    background-color: var(--oo-color-text);
+    transform: rotate(-45deg);
+  }
+
+  /* Wide: navigation inline, toggle hidden. */
+  @container oo-header (width >= 52rem) {
+    .oo-header__inner {
+      flex-wrap: nowrap;
+    }
+
+    .oo-header__nav,
+    [data-oo-nav-ready] .oo-header__nav {
+      display: block;
+      flex-basis: auto;
+    }
+
+    .oo-header__list {
+      flex-direction: row;
+      gap: var(--oo-space-5);
+    }
+
+    [data-oo-nav-ready] .oo-header__toggle {
+      display: none;
+    }
+
+    .oo-header__actions {
+      order: 3;
+    }
+  }
+
+  /* Variant: centred brand with navigation on its own row. */
+  .oo-header--centered .oo-header__inner {
+    padding-block: var(--oo-space-5) var(--oo-space-3);
+  }
+
+  .oo-header--centered .oo-header__tagline {
+    display: none;
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  @container oo-header (width >= 52rem) {
+    .oo-header--centered .oo-header__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      row-gap: var(--oo-space-4);
+    }
+
+    .oo-header--centered .oo-header__brand {
+      grid-column: 2;
+      flex-direction: column;
+      margin-inline: 0;
+      font-size: var(--oo-text-2xl);
+      text-align: center;
+    }
+
+    .oo-header--centered .oo-header__tagline {
+      display: block;
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+    }
+
+    .oo-header--centered .oo-header__actions {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: end;
+    }
+
+    .oo-header--centered .oo-header__nav {
+      grid-column: 1 / -1;
+      padding-block-start: var(--oo-space-3);
+      border-block-start: var(--oo-border-width) solid var(--oo-color-border);
+    }
+
+    .oo-header--centered .oo-header__list {
+      justify-content: center;
+      gap: var(--oo-space-6);
+    }
+
+    .oo-header--centered .oo-header__list a {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  /* Theme toggle (theme.js). */
+  .oo-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-pill);
+    background: transparent;
+    color: var(--oo-color-text);
+  }
+
+  .oo-theme-toggle:hover {
+    background-color: var(--oo-color-surface-2);
+  }
+
+  .oo-theme-toggle svg {
+    inline-size: 1.15rem;
+    block-size: 1.15rem;
+  }
+
+  .oo-theme-toggle .oo-theme-toggle__moon,
+  .oo-theme-toggle[aria-pressed="true"] .oo-theme-toggle__sun {
+    display: none;
+  }
+
+  .oo-theme-toggle[aria-pressed="true"] .oo-theme-toggle__moon {
+    display: block;
+  }
+}

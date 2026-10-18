@@ -1,0 +1,31 @@
+/*
+ * oo-patterns: full bundle.
+ *
+ * The layer order is declared once here. Site styles written outside any
+ * layer always win over the library, so overrides never need !important.
+ * Each imported file wraps its rules in one of these layers. The same
+ * files are also published separately: dist/css/core.css plus any of
+ * dist/css/patterns/*.css.
+ */
+
+@layer oo.reset, oo.tokens, oo.base, oo.components, oo.patterns;
+
+@import "./tokens.css";
+@import "./base/reset.css";
+@import "./base/typography.css";
+@import "./base/layout.css";
+@import "./components/buttons.css";
+@import "./components/forms.css";
+@import "./components/carousel.css";
+@import "./components/lightbox.css";
+@import "./components/pager.css";
+@import "./patterns/header.css";
+@import "./patterns/hero.css";
+@import "./patterns/about.css";
+@import "./patterns/features.css";
+@import "./patterns/portfolio.css";
+@import "./patterns/case-study.css";
+@import "./patterns/blog.css";
+@import "./patterns/resume.css";
+@import "./patterns/contact.css";
+@import "./patterns/footer.css";

@@ -1,0 +1,111 @@
+/* Form controls. Labels are always visible; placeholders are optional hints. */
+
+@layer oo.components {
+  .oo-field {
+    display: grid;
+    gap: var(--oo-space-2);
+  }
+
+  .oo-label {
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-medium);
+  }
+
+  .oo-hint {
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-error {
+    color: var(--oo-color-danger);
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-medium);
+  }
+
+  .oo-input,
+  .oo-textarea,
+  .oo-select {
+    inline-size: 100%;
+    min-block-size: 2.75rem;
+    padding: var(--oo-space-2) var(--oo-space-3);
+    border: var(--oo-border-width) solid var(--oo-color-border-strong);
+    border-radius: var(--oo-radius-md);
+    background-color: var(--oo-color-surface);
+    color: var(--oo-color-text);
+    transition: border-color var(--oo-duration-fast) var(--oo-ease);
+  }
+
+  .oo-input:hover,
+  .oo-textarea:hover,
+  .oo-select:hover {
+    border-color: var(--oo-color-text);
+  }
+
+  .oo-input:focus-visible,
+  .oo-textarea:focus-visible,
+  .oo-select:focus-visible {
+    border-color: var(--oo-color-focus);
+    outline-offset: 0;
+  }
+
+  .oo-input[aria-invalid="true"],
+  .oo-textarea[aria-invalid="true"] {
+    border-color: var(--oo-color-danger);
+  }
+
+  .oo-textarea {
+    min-block-size: 8rem;
+    resize: vertical;
+  }
+
+  .oo-input::placeholder,
+  .oo-textarea::placeholder {
+    color: var(--oo-color-text-muted);
+    opacity: 1;
+  }
+
+  .oo-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--oo-space-2);
+    font-size: var(--oo-text-sm);
+  }
+
+  .oo-choice input {
+    inline-size: 1.15rem;
+    block-size: 1.15rem;
+    margin: 0.2em 0 0;
+    accent-color: var(--oo-color-accent);
+  }
+
+  .oo-fieldset {
+    display: grid;
+    gap: var(--oo-space-3);
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .oo-fieldset legend {
+    margin-block-end: var(--oo-space-2);
+    padding: 0;
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-medium);
+  }
+
+  .oo-form {
+    display: grid;
+    gap: var(--oo-space-5);
+  }
+
+  .oo-form__row {
+    display: grid;
+    gap: var(--oo-space-5);
+  }
+
+  @media (width >= 40rem) {
+    .oo-form__row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Foundations | oo-patterns</title>
+    <meta name="description" content="Design tokens, typography, buttons and form controls.">
+    <script>try{var t=localStorage.getItem('oo-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <link rel="stylesheet" href="../src/css/oo.css">
+    <link rel="stylesheet" href="assets/demo.css">
+    <script type="module" src="assets/demo.js"></script>
+  </head>
+  <body>
+    <a class="oo-skip-link" href="#main">Skip to content</a>
+    <nav class="demo-bar" aria-label="Pattern library">
+      <div class="demo-bar__inner oo-container">
+        <a class="demo-bar__home" href="../index.html">oo-patterns</a>
+        <ul class="demo-bar__links">
+          <li><a href="foundations.html" aria-current="page">Foundations</a></li>
+          <li><a href="headers.html">Headers</a></li>
+          <li><a href="heroes.html">Heroes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="case-study.html">Case study</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog-post.html">Post</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button type="button" class="oo-theme-toggle" data-oo-theme-toggle aria-pressed="false" aria-label="Dark theme"><svg class="oo-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="oo-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      </div>
+    </nav>
+    <main id="main">
+      <div class="demo-intro oo-container">
+        <p class="oo-eyebrow">Pattern group</p>
+        <h1>Foundations</h1>
+        <p>The tokens every pattern reads, the base typography, buttons and form controls. Switch the theme to see the dark token set.</p>
+      </div>
+      <section class="demo-variant" aria-labelledby="v-colour">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-colour">Colour tokens</h2>
+          <code>:root { --oo-color-* }</code>
+        </div>
+        <div class="oo-container">
+          <ul class="demo-swatches">
+            <li><span style="background-color: var(--oo-color-bg)"></span><code>--oo-color-bg</code></li>
+            <li><span style="background-color: var(--oo-color-surface)"></span><code>--oo-color-surface</code></li>
+            <li><span style="background-color: var(--oo-color-surface-2)"></span><code>--oo-color-surface-2</code></li>
+            <li><span style="background-color: var(--oo-color-text)"></span><code>--oo-color-text</code></li>
+            <li><span style="background-color: var(--oo-color-text-muted)"></span><code>--oo-color-text-muted</code></li>
+            <li><span style="background-color: var(--oo-color-border)"></span><code>--oo-color-border</code></li>
+            <li><span style="background-color: var(--oo-color-border-strong)"></span><code>--oo-color-border-strong</code></li>
+            <li><span style="background-color: var(--oo-color-accent)"></span><code>--oo-color-accent</code></li>
+            <li><span style="background-color: var(--oo-color-accent-hover)"></span><code>--oo-color-accent-hover</code></li>
+            <li><span style="background-color: var(--oo-color-on-accent)"></span><code>--oo-color-on-accent</code></li>
+            <li><span style="background-color: var(--oo-color-accent-soft)"></span><code>--oo-color-accent-soft</code></li>
+            <li><span style="background-color: var(--oo-color-on-accent-soft)"></span><code>--oo-color-on-accent-soft</code></li>
+            <li><span style="background-color: var(--oo-color-focus)"></span><code>--oo-color-focus</code></li>
+            <li><span style="background-color: var(--oo-color-success)"></span><code>--oo-color-success</code></li>
+            <li><span style="background-color: var(--oo-color-danger)"></span><code>--oo-color-danger</code></li>
+          </ul>
+        </div>
+      </section>
+      <section class="demo-variant" aria-labelledby="v-type">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-type">Type scale</h2>
+          <code>--oo-text-xs ... --oo-text-4xl</code>
+        </div>
+        <div class="oo-container demo-type-scale">
+          <p style="font-size: var(--oo-text-4xl); font-family: var(--oo-font-display)">Display 4xl</p>
+          <p style="font-size: var(--oo-text-3xl); font-family: var(--oo-font-display)">Heading 3xl</p>
+          <p style="font-size: var(--oo-text-2xl); font-family: var(--oo-font-display)">Heading 2xl</p>
+          <p style="font-size: var(--oo-text-xl); font-family: var(--oo-font-display)">Heading xl</p>
+          <p style="font-size: var(--oo-text-lg)">Large body text for introductions</p>
+          <p>Body text at the default size, set for comfortable reading at around sixty to seventy-five characters per line.</p>
+          <p style="font-size: var(--oo-text-sm)">Small text for captions and metadata</p>
+          <p class="oo-eyebrow">Eyebrow label</p>
+        </div>
+      </section>
+      <section class="demo-variant" aria-labelledby="v-prose">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-prose">Prose</h2>
+          <code>.oo-prose</code>
+        </div>
+        <div class="oo-container">
+          <div class="oo-prose">
+            <p class="oo-lead">A lead paragraph sets the tone. It is larger and a little quieter than the text that follows.</p>
+            <p>Body copy with <a href="#">an inline link</a>, some <strong>strong emphasis</strong>, <em>a little italic</em> and <code>inline code</code>.</p>
+            <h3>A third-level heading</h3>
+            <ul>
+              <li>Lists keep a readable indent.</li>
+              <li>Spacing between items is consistent.</li>
+            </ul>
+            <blockquote>
+              <p>Good work is mostly the patience to look at a thing one more time.</p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+      <section class="demo-variant" aria-labelledby="v-buttons">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-buttons">Buttons and tags</h2>
+          <code>.oo-button, .oo-button--secondary, .oo-button--ghost, .oo-tag</code>
+        </div>
+        <div class="oo-container oo-stack">
+          <div class="oo-cluster">
+            <a class="oo-button" href="#">Primary</a>
+            <a class="oo-button oo-button--secondary" href="#">Secondary</a>
+            <a class="oo-button oo-button--ghost" href="#">Ghost</a>
+            <button type="button" class="oo-button" disabled>Disabled</button>
+          </div>
+          <div class="oo-cluster">
+            <button type="button" class="oo-button oo-button--sm">Small</button>
+            <button type="button" class="oo-button oo-button--lg">Large</button>
+            <button type="button" class="oo-button oo-button--secondary oo-button--icon" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="oo-link-arrow" href="#">Arrow link</a>
+          </div>
+          <div class="oo-cluster">
+            <span class="oo-tag">Identity</span>
+            <span class="oo-tag">Motion</span>
+            <span class="oo-tag">Editorial</span>
+          </div>
+        </div>
+      </section>
+      <section class="demo-variant" aria-labelledby="v-forms">
+        <div class="demo-variant__label oo-container">
+          <h2 class="demo-variant__title" id="v-forms">Form controls</h2>
+          <code>.oo-form, .oo-field, .oo-input, .oo-select, .oo-textarea, .oo-choice</code>
+        </div>
+        <div class="oo-container">
+          <form class="oo-form" style="max-inline-size: 40rem" action="#" method="post">
+            <div class="oo-form__row">
+              <div class="oo-field">
+                <label class="oo-label" for="f-name">Name</label>
+                <input class="oo-input" id="f-name" name="name" type="text" autocomplete="name">
+              </div>
+              <div class="oo-field">
+                <label class="oo-label" for="f-email">Email</label>
+                <input class="oo-input" id="f-email" name="email" type="email" autocomplete="email" aria-describedby="f-email-error" aria-invalid="true" value="not-an-email">
+                <p class="oo-error" id="f-email-error">Enter an email address like name@example.com.</p>
+              </div>
+            </div>
+            <div class="oo-field">
+              <label class="oo-label" for="f-type">Project type</label>
+              <select class="oo-select" id="f-type" name="type">
+                <option>Brand identity</option>
+                <option>Website</option>
+                <option>Film or motion</option>
+              </select>
+            </div>
+            <div class="oo-field">
+              <label class="oo-label" for="f-msg">Message</label>
+              <textarea class="oo-textarea" id="f-msg" name="message" aria-describedby="f-msg-hint"></textarea>
+              <p class="oo-hint" id="f-msg-hint">A few sentences is plenty.</p>
+            </div>
+            <fieldset class="oo-fieldset">
+              <legend>Budget</legend>
+              <label class="oo-choice"><input type="radio" name="budget" value="small"> Under 5k</label>
+              <label class="oo-choice"><input type="radio" name="budget" value="mid"> 5k to 15k</label>
+              <label class="oo-choice"><input type="radio" name="budget" value="large"> Over 15k</label>
+            </fieldset>
+            <label class="oo-choice"><input type="checkbox" name="news"> Send me the occasional newsletter</label>
+            <div><button type="submit" class="oo-button">Send</button></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

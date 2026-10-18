@@ -1,0 +1,95 @@
+/*
+ * Services and feature grid.
+ *
+ * The grid is a size container; columns follow the grid's own width so it
+ * works in a full-width section or a narrow sidebar alike.
+ */
+
+@layer oo.patterns {
+  .oo-features {
+    container: oo-features / inline-size;
+  }
+
+  .oo-features__list {
+    display: grid;
+    gap: var(--oo-space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oo-feature {
+    position: relative;
+    display: grid;
+    gap: var(--oo-space-3);
+    align-content: start;
+    block-size: 100%;
+    padding: var(--oo-space-6);
+    border: var(--oo-border-width) solid var(--oo-color-border);
+    border-radius: var(--oo-radius-lg);
+    background-color: var(--oo-color-surface);
+    transition: border-color var(--oo-duration-base) var(--oo-ease), transform var(--oo-duration-base) var(--oo-ease);
+  }
+
+  .oo-feature:hover {
+    border-color: var(--oo-color-border-strong);
+  }
+
+  .oo-feature__icon {
+    display: grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    margin-block-end: var(--oo-space-2);
+    border-radius: var(--oo-radius-md);
+    background-color: var(--oo-color-accent-soft);
+    color: var(--oo-color-on-accent-soft);
+  }
+
+  .oo-feature__icon svg {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
+  .oo-feature__title {
+    font-size: var(--oo-text-xl);
+  }
+
+  .oo-feature__text {
+    color: var(--oo-color-text-muted);
+  }
+
+  .oo-feature__list {
+    display: grid;
+    gap: var(--oo-space-1);
+    margin: var(--oo-space-2) 0 0;
+    padding: 0;
+    font-size: var(--oo-text-sm);
+    list-style: none;
+  }
+
+  .oo-feature__list li::before {
+    margin-inline-end: var(--oo-space-2);
+    color: var(--oo-color-accent);
+    content: "\2014";
+  }
+
+  .oo-feature__number {
+    color: var(--oo-color-accent);
+    font-family: var(--oo-font-display);
+    font-size: var(--oo-text-sm);
+    font-weight: var(--oo-font-weight-bold);
+  }
+
+  @container oo-features (width >= 36rem) {
+    .oo-features__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @container oo-features (width >= 60rem) {
+    .oo-features__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

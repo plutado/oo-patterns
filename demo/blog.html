@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog | oo-patterns</title>
+    <meta name="description" content="Blog list pattern.">
+    <script>try{var t=localStorage.getItem('oo-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <link rel="stylesheet" href="../src/css/oo.css">
+    <link rel="stylesheet" href="assets/demo.css">
+    <script type="module" src="assets/demo.js"></script>
+  </head>
+  <body>
+    <a class="oo-skip-link" href="#main">Skip to content</a>
+    <nav class="demo-bar" aria-label="Pattern library">
+      <div class="demo-bar__inner oo-container">
+        <a class="demo-bar__home" href="../index.html">oo-patterns</a>
+        <ul class="demo-bar__links">
+          <li><a href="foundations.html">Foundations</a></li>
+          <li><a href="headers.html">Headers</a></li>
+          <li><a href="heroes.html">Heroes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="case-study.html">Case study</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li><a href="blog-post.html">Post</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button type="button" class="oo-theme-toggle" data-oo-theme-toggle aria-pressed="false" aria-label="Dark theme"><svg class="oo-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="oo-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      </div>
+    </nav>
+    <main id="main">
+      <div class="demo-intro oo-container">
+        <p class="oo-eyebrow">Journal</p>
+        <h1>Notes from the studio</h1>
+        <p>Process, tools and the business of working alone. Each summary switches to a side-by-side layout when it has room.</p>
+      </div>
+      <div class="oo-container">
+          <ul class="oo-post-list">
+            <li>
+              <article class="oo-post-summary">
+                <div class="oo-post-summary__layout">
+                  <div class="oo-post-summary__media"><img src="assets/img/post-01.svg" alt="" width="1200" height="800" loading="lazy"></div>
+                  <div class="oo-post-summary__body">
+                    <p class="oo-post-summary__meta"><span class="oo-tag">Process</span> <time datetime="2026-09-14">14 September 2026</time> <span>6 min read</span></p>
+                    <h2 class="oo-post-summary__title"><a href="blog-post.html">Drawing a logo you can animate</a></h2>
+                    <p class="oo-post-summary__excerpt">Notes on designing marks that survive being moved, stretched and played at 24 frames per second.</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="oo-post-summary">
+                <div class="oo-post-summary__layout">
+                  <div class="oo-post-summary__media"><img src="assets/img/post-02.svg" alt="" width="1200" height="800" loading="lazy"></div>
+                  <div class="oo-post-summary__body">
+                    <p class="oo-post-summary__meta"><span class="oo-tag">Web</span> <time datetime="2026-07-02">2 July 2026</time> <span>9 min read</span></p>
+                    <h2 class="oo-post-summary__title"><a href="blog-post.html">A year of plain HTML</a></h2>
+                    <p class="oo-post-summary__excerpt">What happened when I rebuilt my studio site without a framework, and what I would do differently.</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="oo-post-summary">
+                <div class="oo-post-summary__layout">
+                  <div class="oo-post-summary__media"><img src="assets/img/post-03.svg" alt="" width="1200" height="800" loading="lazy"></div>
+                  <div class="oo-post-summary__body">
+                    <p class="oo-post-summary__meta"><span class="oo-tag">Film</span> <time datetime="2026-04-21">21 April 2026</time> <span>5 min read</span></p>
+                    <h2 class="oo-post-summary__title"><a href="blog-post.html">Shooting in small rooms</a></h2>
+                    <p class="oo-post-summary__excerpt">Lenses, light and patience: practical notes from a documentary filmed in one-room apartments.</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="oo-post-summary">
+                <div class="oo-post-summary__layout">
+                  <div class="oo-post-summary__media"><img src="assets/img/post-04.svg" alt="" width="1200" height="800" loading="lazy"></div>
+                  <div class="oo-post-summary__body">
+                    <p class="oo-post-summary__meta"><span class="oo-tag">Practice</span> <time datetime="2026-01-30">30 January 2026</time> <span>7 min read</span></p>
+                    <h2 class="oo-post-summary__title"><a href="blog-post.html">Pricing a first identity project</a></h2>
+                    <p class="oo-post-summary__excerpt">How I scope and quote identity work for very small clients without underselling the job.</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <nav class="oo-pager" aria-label="Older and newer posts">
+            <a class="oo-pager__link oo-pager__link--next" href="blog.html"><span class="oo-pager__label">Older posts</span><span class="oo-pager__title">Page 2</span></a>
+          </nav>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+/*
+ * Contact section: invitation, direct details and a form.
+ */
+
+@layer oo.patterns {
+  .oo-contact {
+    container: oo-contact / inline-size;
+  }
+
+  .oo-contact__grid {
+    display: grid;
+    gap: var(--oo-space-7);
+  }
+
+  .oo-contact__intro {
+    display: grid;
+    gap: var(--oo-space-5);
+    align-content: start;
+  }
+
+  .oo-contact__details {
+    display: grid;
+    gap: var(--oo-space-4);
+    margin: 0;
+  }
+
+  .oo-contact__detail dt {
+    color: var(--oo-color-text-muted);
+    font-size: var(--oo-text-xs);
+    font-weight: var(--oo-font-weight-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .oo-contact__detail dd {
+    font-size: var(--oo-text-lg);
+  }
+
+  .oo-contact__form {
+    padding: var(--oo-space-6);
+    border: var(--oo-border-width) solid var(--oo-color-border);
+    border-radius: var(--oo-radius-lg);
+    background-color: var(--oo-color-surface);
+  }
+
+  @container oo-contact (width >= 52rem) {
+    .oo-contact__grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: var(--oo-space-8);
+    }
+  }
+}
